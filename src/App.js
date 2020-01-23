@@ -11,10 +11,19 @@ const App = props => {
     ]
   })
 
+  const nameChangeHandler = (event) => {
+    setUserNameState({
+      users: [
+        { user: event.target.value, pass: 'test'}
+      ]
+    })
+  }
+
   return (
     <div>
-      <UserInput/>
-      <UserOutput userName={usernameState.users[0].user}/>
+      <UserInput changed={nameChangeHandler}
+                 currentName={usernameState.users[0].user}/>
+      <UserOutput Name={usernameState.users[0].user} userName={usernameState.users[0].user} />
     </div>
   )
 }
